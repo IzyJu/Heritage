@@ -1,0 +1,80 @@
+using System;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Animals Chien = new Chien("leCleps", 4, 20);
+            Animals Chat = new Chat("LeChat", 4, 8);
+            Animals Humain = new Humain("jo", 2, 70);
+            Animals Singe = new Singe("LeSinge", 4, 30);
+            Chat.Eat();
+            Chien.Eat();
+            Singe.Eat();
+            Humain.Move();
+            Chat.Move();
+            Chien.Move();
+        }
+    }
+
+    abstract class Animals
+    {
+        protected string _name;
+        protected int _nombrePattes;
+        protected int _poids;
+
+        public virtual void Move()
+        {
+            Console.WriteLine("je suis {0} et je marche a {1} pattes", _name, _nombrePattes);
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("Je suis {0} et je mange grace a ma bouche", _name);
+        }
+    }
+
+    class Chien : Animals
+    {
+        public Chien(string name, int nombrePattes, int poids)
+        {
+            _name = name;
+            _nombrePattes = nombrePattes;
+            _poids = poids;
+        }
+    }
+    class Chat : Animals
+    {
+        public Chat(string name, int nombrePattes, int poids)
+        {
+            _name = name;
+            _nombrePattes = nombrePattes;
+            _poids = poids;
+        }
+    }
+    class Humain : Animals
+    {
+        public Humain(string name, int nombrePattes, int poids)
+        {
+            _name = name;
+            _nombrePattes = nombrePattes;
+            _poids = poids;
+        }
+        public override void Move()
+        {
+            Console.WriteLine("je suis {0} et je marche a {1} jambes", _name, _nombrePattes);
+        }
+    }
+    class Singe : Animals
+    {
+        public Singe(string name, int nombrePattes, int poids)
+        {
+            _name = name;
+            _nombrePattes = nombrePattes;
+            _poids = poids;
+        }
+    }
+
+}
